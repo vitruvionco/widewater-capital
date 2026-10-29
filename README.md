@@ -1,14 +1,16 @@
 # Widewater Capital — widewatercapital.com
 
-Single-page landing splash for Widewater Capital: the logo centred on a dark steel-blue background. Plain HTML and CSS with no build step. Hosted on GitHub Pages, with the domain registered at GoDaddy.
+Single-page landing site for Widewater Capital: the logo on a dark steel-blue background, then a few short parallax-scrolling sections. Plain HTML, CSS and a small script, with no build step. Hosted on GitHub Pages, with the domain registered at GoDaddy.
 
 ## Structure
 
 ```
-index.html                  Splash page
+index.html                  Home page: logo hero, statement, image band, three pillars
 404.html                    Not-found page (GitHub Pages serves it automatically)
 assets/css/styles.css       All styles
+assets/js/main.js           Parallax + scroll fade-ins (off when the visitor prefers reduced motion)
 assets/img/logo*.png|webp   Logo cut out in light steel on a transparent background
+assets/img/monogram.*       "WC" monogram for the watermark and footer
 assets/img/bg-*.jpg|webp    Estuary photo as a steel-blue duotone (800/1280/1672px)
 assets/img/og-image.jpg     Preview image shown when the link is shared
 assets/img/*icon*, favicon  Browser and home-screen icons (WC monogram)

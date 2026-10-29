@@ -1,11 +1,16 @@
-/* Widewater Capital — splash page */
+/* Widewater Capital */
 
 :root {
   --steel-950: #070d14;
   --steel-900: #0a131c;
   --steel-800: #122233;
+  --steel-500: #4f6a82;
   --steel-300: #8ea4b8;
   --steel-100: #dbe4ec;
+
+  --serif: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 *,
@@ -14,16 +19,15 @@
   box-sizing: border-box;
 }
 
-html,
-body {
-  height: 100%;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  background: var(--steel-900);
+  background: var(--steel-950);
   color: var(--steel-100);
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--serif);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -37,10 +41,30 @@ a {
   color: inherit;
 }
 
+h2,
+h3,
+p {
+  margin: 0;
+  font-weight: 500;
+}
+
 :focus-visible {
   outline: 1px solid var(--steel-300);
   outline-offset: 4px;
 }
+
+/* Small letter-spaced labels */
+.scroll-cue,
+.splash-tagline,
+.site-footer p {
+  color: var(--steel-300);
+  font-family: var(--sans);
+  font-size: 0.6875rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+/* Full-screen logo splash (home hero and 404) */
 
 .splash {
   position: relative;
@@ -55,7 +79,14 @@ a {
   isolation: isolate;
 }
 
-/* Steel-blue duotone of the estuary photo, sitting quietly behind the logo */
+.parallax-layer {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  will-change: transform;
+}
+
+/* Steel-blue duotone of the estuary photo */
 .splash-bg {
   position: absolute;
   inset: 0;
@@ -64,7 +95,11 @@ a {
   height: 100%;
   object-fit: cover;
   object-position: 40% 55%;
-  animation: bg-in 2.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero .splash-bg,
+.not-found .splash-bg {
+  animation: bg-in 2.4s var(--ease-out) both;
 }
 
 .splash::after {
@@ -77,22 +112,210 @@ a {
     linear-gradient(180deg, rgba(7, 13, 20, 0.5) 0%, rgba(7, 13, 20, 0.15) 40%, rgba(7, 13, 20, 0.6) 100%);
 }
 
+/* Room for the background to drift without exposing an edge */
+.hero .parallax-layer {
+  inset: -8vh 0;
+}
+
+.hero-content {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  will-change: transform, opacity;
+}
+
 .splash-logo {
   display: block;
   width: min(600px, 80vw);
   margin: 0;
   filter: drop-shadow(0 6px 30px rgba(0, 0, 0, 0.45));
-  animation: logo-in 1.6s 0.25s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: logo-in 1.6s 0.25s var(--ease-out) both;
+}
+
+.scroll-cue {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  text-decoration: none;
+  opacity: 0.75;
+  transform: translateX(-50%);
+  animation: fade-in 1.6s 1s ease both;
+}
+
+.scroll-cue::after {
+  content: "";
+  width: 1px;
+  height: 2.75rem;
+  background: linear-gradient(var(--steel-300), transparent);
+  transform-origin: top;
+  animation: cue 2.6s ease-in-out infinite;
+}
+
+.scroll-cue:hover {
+  opacity: 1;
+}
+
+/* Statement */
+
+.statement {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 8rem 1.5rem;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--steel-950) 0%, var(--steel-900) 50%, var(--steel-950) 100%);
+  text-align: center;
+  isolation: isolate;
+}
+
+.watermark {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  display: grid;
+  place-items: center;
+  opacity: 0.05;
+  will-change: transform;
+}
+
+.watermark img {
+  width: min(900px, 115vw);
+}
+
+.statement h2 {
+  font-size: clamp(2.75rem, 7.5vw, 6.25rem);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+}
+
+.statement p {
+  margin-top: 2rem;
+  color: var(--steel-300);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-style: italic;
+}
+
+/* Image band */
+
+.band {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 80vh;
+  min-height: 80svh;
+  padding: 6rem 1.5rem;
+  overflow: hidden;
+  text-align: center;
+  isolation: isolate;
+}
+
+.band .parallax-layer {
+  inset: -25vh 0;
+}
+
+.band .splash-bg {
+  object-position: 72% 80%;
+}
+
+.band::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, var(--steel-950) 0%, rgba(7, 13, 20, 0.3) 28%, rgba(7, 13, 20, 0.3) 72%, var(--steel-950) 100%);
+}
+
+.band-line {
+  max-width: 14ch;
+  font-size: clamp(2.25rem, 5.5vw, 4.25rem);
+  font-style: italic;
+  line-height: 1.1;
+  text-shadow: 0 2px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Pillars */
+
+.pillars {
+  padding: clamp(6rem, 14vw, 10rem) 1.5rem;
+}
+
+.pillar-list {
+  display: grid;
+  gap: 4rem;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.pillar h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+.pillar h3::before {
+  content: "";
+  display: block;
+  width: 2.5rem;
+  height: 1px;
+  margin: 0 auto 2rem;
+  background: var(--steel-500);
+}
+
+.pillar p {
+  margin-top: 1rem;
+  color: var(--steel-300);
+  font-size: 1.3rem;
+  font-style: italic;
+}
+
+/* Footer */
+
+.site-footer {
+  padding: 4.5rem 1.5rem 3rem;
+  border-top: 1px solid rgba(142, 164, 184, 0.12);
+  text-align: center;
+}
+
+.site-footer a {
+  display: inline-block;
+}
+
+.site-footer img {
+  width: 64px;
+  opacity: 0.85;
+}
+
+.site-footer p {
+  margin-top: 1.75rem;
+  opacity: 0.6;
+}
+
+/* 404 page: smaller logo with a message below */
+
+.splash-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.not-found .splash-logo {
+  width: min(380px, 66vw);
 }
 
 .splash-tagline {
   margin: 2rem 0 0;
-  color: var(--steel-300);
-  font-size: 0.75rem;
-  letter-spacing: 0.3em;
   text-align: center;
-  text-transform: uppercase;
-  animation: logo-in 1.6s 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: logo-in 1.6s 0.5s var(--ease-out) both;
 }
 
 .splash-tagline a {
@@ -110,29 +333,25 @@ a {
   background: rgba(219, 228, 236, 0.06);
 }
 
-.splash-footer {
-  position: absolute;
-  bottom: 1.75rem;
-  left: 0;
-  right: 0;
-  color: var(--steel-300);
-  font-size: 0.6875rem;
-  letter-spacing: 0.24em;
-  text-align: center;
-  text-transform: uppercase;
-  opacity: 0.6;
-  animation: fade-in 1.6s 0.9s ease both;
+/* Scroll reveal (only when JS is running) */
+
+.js .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 1.2s var(--ease-out), transform 1.2s var(--ease-out);
 }
 
-/* 404 page: smaller logo with a message below */
-.splash-stack {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
 }
 
-.not-found .splash-logo {
-  width: min(380px, 66vw);
+.pillar.reveal:nth-child(2) {
+  transition-delay: 0.12s;
+}
+
+.pillar.reveal:nth-child(3) {
+  transition-delay: 0.24s;
 }
 
 @keyframes bg-in {
@@ -155,11 +374,44 @@ a {
   }
 }
 
+@keyframes cue {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  40% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleY(1);
+  }
+}
+
+@media (min-width: 760px) {
+  .pillar-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .splash-bg,
   .splash-logo,
   .splash-tagline,
-  .splash-footer {
+  .scroll-cue,
+  .scroll-cue::after {
     animation: none;
+  }
+
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }

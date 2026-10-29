@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Widewater Capital</title>
-  <meta name="description" content="Widewater Capital">
+  <meta name="description" content="Widewater Capital — patient capital, lasting value.">
   <link rel="canonical" href="https://widewatercapital.com/">
   <meta name="theme-color" content="#0a131c">
   <meta name="color-scheme" content="dark">
@@ -12,6 +12,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Widewater Capital">
   <meta property="og:title" content="Widewater Capital">
+  <meta property="og:description" content="Patient capital. Lasting value.">
   <meta property="og:url" content="https://widewatercapital.com/">
   <meta property="og:image" content="https://widewatercapital.com/assets/img/og-image.jpg">
   <meta property="og:image:width" content="1200">
@@ -23,6 +24,9 @@
   <link rel="icon" href="assets/img/icon-192.png" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap">
   <link rel="preload" as="image" type="image/webp" href="assets/img/logo.webp"
         imagesrcset="assets/img/logo-800.webp 800w, assets/img/logo.webp 1482w"
         imagesizes="(min-width: 760px) 600px, 80vw">
@@ -39,34 +43,87 @@
   </script>
 </head>
 <body>
-  <main class="splash">
-    <picture>
-      <source type="image/webp"
-              srcset="assets/img/bg-800.webp 800w, assets/img/bg-1280.webp 1280w, assets/img/bg-1672.webp 1672w"
-              sizes="100vw">
-      <img class="splash-bg"
-           src="assets/img/bg-1672.jpg"
-           srcset="assets/img/bg-800.jpg 800w, assets/img/bg-1280.jpg 1280w, assets/img/bg-1672.jpg 1672w"
-           sizes="100vw" width="1672" height="941" alt="" decoding="async">
-    </picture>
+  <main>
+    <section class="splash hero" id="top">
+      <div class="parallax-layer" data-speed="0.5">
+        <picture>
+          <source type="image/webp"
+                  srcset="assets/img/bg-800.webp 800w, assets/img/bg-1280.webp 1280w, assets/img/bg-1672.webp 1672w"
+                  sizes="100vw">
+          <img class="splash-bg"
+               src="assets/img/bg-1672.jpg"
+               srcset="assets/img/bg-800.jpg 800w, assets/img/bg-1280.jpg 1280w, assets/img/bg-1672.jpg 1672w"
+               sizes="100vw" width="1672" height="941" alt="" decoding="async">
+        </picture>
+      </div>
 
-    <h1 class="splash-logo">
-      <picture>
-        <source type="image/webp"
-                srcset="assets/img/logo-800.webp 800w, assets/img/logo.webp 1482w"
-                sizes="(min-width: 760px) 600px, 80vw">
-        <img src="assets/img/logo.png"
-             srcset="assets/img/logo-800.png 800w, assets/img/logo.png 1482w"
-             sizes="(min-width: 760px) 600px, 80vw"
-             width="1482" height="608" alt="Widewater Capital" fetchpriority="high">
-      </picture>
-    </h1>
+      <div class="hero-content" data-speed="0.25" data-fade>
+        <h1 class="splash-logo">
+          <picture>
+            <source type="image/webp"
+                    srcset="assets/img/logo-800.webp 800w, assets/img/logo.webp 1482w"
+                    sizes="(min-width: 760px) 600px, 80vw">
+            <img src="assets/img/logo.png"
+                 srcset="assets/img/logo-800.png 800w, assets/img/logo.png 1482w"
+                 sizes="(min-width: 760px) 600px, 80vw"
+                 width="1482" height="608" alt="Widewater Capital" fetchpriority="high">
+          </picture>
+        </h1>
+      </div>
 
-    <footer class="splash-footer">
-      © <span id="year">2026</span> Widewater Capital
-    </footer>
+      <a class="scroll-cue" href="#intro">Scroll</a>
+    </section>
+
+    <section class="statement" id="intro">
+      <div class="watermark" data-speed="0.3" aria-hidden="true">
+        <img src="assets/img/monogram.webp" width="900" height="508" alt="" loading="lazy" decoding="async">
+      </div>
+      <div class="statement-inner reveal">
+        <h2>Patient capital.<br>Lasting value.</h2>
+        <p>Disciplined investing with a long-term view.</p>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="parallax-layer" data-speed="0.25">
+        <picture>
+          <source type="image/webp"
+                  srcset="assets/img/bg-800.webp 800w, assets/img/bg-1280.webp 1280w, assets/img/bg-1672.webp 1672w"
+                  sizes="100vw">
+          <img class="splash-bg"
+               src="assets/img/bg-1280.jpg"
+               srcset="assets/img/bg-800.jpg 800w, assets/img/bg-1280.jpg 1280w, assets/img/bg-1672.jpg 1672w"
+               sizes="100vw" width="1672" height="941" alt="" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <p class="band-line reveal">Steady through every current.</p>
+    </section>
+
+    <section class="pillars" aria-label="Principles">
+      <ul class="pillar-list">
+        <li class="pillar reveal">
+          <h3>Patience</h3>
+          <p>Measured in years, not quarters.</p>
+        </li>
+        <li class="pillar reveal">
+          <h3>Discipline</h3>
+          <p>Careful judgment at every step.</p>
+        </li>
+        <li class="pillar reveal">
+          <h3>Alignment</h3>
+          <p>Shared goals, shared outcomes.</p>
+        </li>
+      </ul>
+    </section>
   </main>
 
-  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  <footer class="site-footer">
+    <a href="#top" aria-label="Back to top">
+      <img src="assets/img/monogram.webp" width="900" height="508" alt="" loading="lazy" decoding="async">
+    </a>
+    <p>© <span data-year>2026</span> Widewater Capital</p>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
