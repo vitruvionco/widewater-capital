@@ -30,25 +30,19 @@ python3 -m http.server 8742
 
 Then open http://localhost:8742.
 
-## Deploying to GitHub Pages
+## Hosting
 
-1. **Create the repo** on GitHub, for example `widewater-capital`. GitHub Pages is free for public repos. A private repo needs a paid plan (Pro, Team or Enterprise).
-2. **Push this folder:**
-   ```bash
-   git init -b main
-   git add .
-   git commit -m "Initial site"
-   git remote add origin git@github.com:<your-username>/widewater-capital.git
-   git push -u origin main
-   ```
-3. **Turn on Pages:** repo → **Settings → Pages** → Source: **Deploy from a branch** → Branch: `main`, folder `/ (root)` → Save.
-4. **Custom domain:** on the same page, enter `widewatercapital.com` and save. It is already in the `CNAME` file, so it should fill in by itself.
+- **Repo:** https://github.com/vitruvionco/widewater-capital (public, branch `main`)
+- **GitHub Pages:** deploys from `main`, folder `/ (root)`, with custom domain `widewatercapital.com`
+- **Settings:** https://github.com/vitruvionco/widewater-capital/settings/pages
+
+To update the site, commit to `main` and push. GitHub redeploys in about a minute.
 
 ## GoDaddy DNS
 
 In GoDaddy, open **My Products → widewatercapital.com → DNS**:
 
-1. **Remove** the existing `A` record for `@` (usually "Parked"), and turn off any domain forwarding.
+1. **Remove** the two existing `A` records for `@` (`76.223.105.230` and `13.248.243.5`, GoDaddy's parking/site-builder addresses). Turn off any domain forwarding, and disconnect any GoDaddy Website Builder site from the domain.
 2. **Add four `A` records**, Name `@`:
    ```
    185.199.108.153
@@ -63,7 +57,7 @@ In GoDaddy, open **My Products → widewatercapital.com → DNS**:
    2606:50c0:8002::153
    2606:50c0:8003::153
    ```
-4. **Edit the `CNAME` record** for `www` so it points to `<your-username>.github.io` (not the repo name). GitHub will then redirect `www.widewatercapital.com` to `widewatercapital.com`.
+4. **Edit the `CNAME` record** for `www` so it points to `vitruvionco.github.io` (it currently points to `@`). GitHub will then redirect `www.widewatercapital.com` to `widewatercapital.com`.
 5. Wait for GitHub's DNS check under **Settings → Pages** to pass. That usually takes minutes but can take up to 24 hours. Then tick **Enforce HTTPS**.
 
 **Recommended:** verify the domain at **GitHub → your profile Settings → Pages → Add a domain**. GitHub gives you a `TXT` record to add in GoDaddy, which stops anyone else from claiming the domain on GitHub Pages.
